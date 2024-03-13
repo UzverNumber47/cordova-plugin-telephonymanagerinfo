@@ -55,7 +55,8 @@ public class TelephonyManagerInfo extends CordovaPlugin {
                 return false;
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e.getStackTrace());
+            return false;
         }
     }
 
