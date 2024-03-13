@@ -23,36 +23,39 @@ public class TelephonyManagerInfo extends CordovaPlugin {
 
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 
-
-        if ("getInfo".equals(action)) {
-            JSONObject r = new JSONObject();
-            r.put("phone", this.getPhoneNumber());
-            r.put("simSerialNumber", this.getSimSerialNumber());
-            r.put("simOperatorName", this.getSimOperatorName());
-            r.put("simOperator", this.getSimOperator());
-            r.put("networkOperatorName", this.getNetworkOperatorName());
-            r.put("networkOperator", this.getNetworkOperator());
-            r.put("networkCountryIso", this.getNetworkCountryIso());
-            r.put("deviceSoftwareVersion", this.getDeviceSoftwareVersion());
-            r.put("deviceId", this.getDeviceId());
-            r.put("phoneType", this.getPhoneType());
-            r.put("isNetworkRoaming", this.isNetworkRoaming());
-            r.put("simState", this.getSimState());
-            r.put("networkType", this.getNetworkType());
-            r.put("callState", this.getCallState());
-            r.put("dataState", this.getDataState());
-            r.put("groupIdLevel", this.getGroupIdLevel1());
-            r.put("simCountryIso", this.getSimCountryIso());
-            r.put("subscriberId", this.getSubscriberId());
-            r.put("voiceMailAlphaTag", this.getVoiceMailAlphaTag());
-            r.put("voiceMailNumber", this.getVoiceMailNumber());
-            r.put("hasIccCard", this.hasIccCard());
-            r.put("dataActivity", this.getDataActivity());
-            
-            callbackContext.success(r);
-            return true;
-        }else {
-            return false;
+        try {
+            if ("getInfo".equals(action)) {
+                JSONObject r = new JSONObject();
+                // r.put("phone", this.getPhoneNumber());
+                // r.put("simSerialNumber", this.getSimSerialNumber());
+                r.put("simOperatorName", this.getSimOperatorName());
+                r.put("simOperator", this.getSimOperator());
+                r.put("networkOperatorName", this.getNetworkOperatorName());
+                r.put("networkOperator", this.getNetworkOperator());
+                r.put("networkCountryIso", this.getNetworkCountryIso());
+                // r.put("deviceSoftwareVersion", this.getDeviceSoftwareVersion());
+                // r.put("deviceId", this.getDeviceId());
+                // r.put("phoneType", this.getPhoneType());
+                // r.put("isNetworkRoaming", this.isNetworkRoaming());
+                // r.put("simState", this.getSimState());
+                // r.put("networkType", this.getNetworkType());
+                // r.put("callState", this.getCallState());
+                // r.put("dataState", this.getDataState());
+                // r.put("groupIdLevel", this.getGroupIdLevel1());
+                r.put("simCountryIso", this.getSimCountryIso());
+                // r.put("subscriberId", this.getSubscriberId());
+                // r.put("voiceMailAlphaTag", this.getVoiceMailAlphaTag());
+                // r.put("voiceMailNumber", this.getVoiceMailNumber());
+                // r.put("hasIccCard", this.hasIccCard());
+                // r.put("dataActivity", this.getDataActivity());
+                
+                callbackContext.success(r);
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
